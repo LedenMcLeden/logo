@@ -24,10 +24,10 @@ This is a demo SceneKit project composed of three elements:
 
 ## Development to do
 **Major**
-- fix camera in correct position
+- fix camera in correct position - see my avatar picture for correct perspective
 - allow cube to spin freely around the fixed sun
-- change materials of cube to be metallic and reflective
 
 **Minor**
 - add curvature to sun ray sides - they are drawn using UIBezierPath QuadCurves but currently render with straight lines
 - rotate each ray fractionally to line up parallel with sun surface
+- change materials of cube to be metallic and reflective
