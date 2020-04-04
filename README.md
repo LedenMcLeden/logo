@@ -10,6 +10,8 @@ This is a demo SceneKit project composed of three elements:
 - GameViewController.swift
   - initialises the View, Scene and Camera
   - func initScene() calls createCube() and createSun()
+- makeCorner.swift
+  - makeCorner()
 - createCube.swift
   - createCube() calls makeCorner() eight times
 - createSun.swift
