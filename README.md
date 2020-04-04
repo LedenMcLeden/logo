@@ -23,6 +23,10 @@ This is a demo SceneKit project composed of three elements:
 - view can be spun by manipulating the camera view
 
 ## Development to do
+**Major**
 - fix camera in correct position
 - allow cube to spin freely around the fixed sun
 - change materials of cube to be metallic and reflective
+**Minor**
+- add curvature to sun ray sides - they are drawn using UIBezierPath QuadCurves but currently render with straight lines
+- rotate each ray fractionally to line up parallel with sun surface
