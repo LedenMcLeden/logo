@@ -31,3 +31,4 @@ This is a demo SceneKit project composed of three elements:
 - add curvature to sun ray sides - they are drawn using UIBezierPath QuadCurves but currently render with straight lines
 - rotate each ray fractionally to line up parallel with sun surface
 - change materials of cube to be metallic and reflective
+- embed in SwiftUI view
