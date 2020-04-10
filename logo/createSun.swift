@@ -49,18 +49,12 @@ func createSun() -> SCNNode {
     var matrix1: SCNMatrix4
     var matrix2: SCNMatrix4
     var spin90X: SCNMatrix4
-    var spin45Y: SCNMatrix4
     var fixRotationInY: SCNMatrix4
     
     spin90X = SCNMatrix4(m11: 1,    m12: 0,           m13: 0,           m14: 0,
                          m21: 0,    m22: cos(.pi/2),  m23: sin(.pi/2),  m24: 0,
                          m31: 0,    m32: -sin(.pi/2), m33: cos(.pi/2),  m34: 0,
                          m41: 0,    m42: 0,           m43: 0,           m44: 1)
-    
-    spin45Y = SCNMatrix4(m11: cos(.pi/4), m12: 0, m13: -sin(.pi/4),    m14: 0,
-                         m21: 0,          m22: 1, m23: 0,              m24: 0,
-                         m31: sin(.pi/4), m32: 0, m33: cos(.pi/4),     m34: 0,
-                         m41: 0,          m42: 0, m43: 0,              m44: 1)
     
     // move ray from centre to edge of sun
     matrix2 = SCNMatrix4(m11: 1.5,        m12: 0,     m13: 0,          m14: 0,

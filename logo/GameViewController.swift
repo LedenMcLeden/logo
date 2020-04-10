@@ -67,7 +67,7 @@ class GameViewController: UIViewController {
         let torque: SCNVector4
         let force: SCNVector3
         let position: SCNVector3
-        let boxNode = try gameScene.rootNode.childNode(withName: "box",
+        let boxNode = gameScene.rootNode.childNode(withName: "box",
         recursively: true)
         let randomX = Float.random(in: -2 ... 2)
         let randomY = Float.random(in: -2 ... 2)
