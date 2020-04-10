@@ -48,10 +48,12 @@ func makeCorner(breadth: CGFloat, length: CGFloat, depth: CGFloat) -> SCNNode {
     
     let whiteMaterial = SCNMaterial()
     whiteMaterial.diffuse.contents = UIColor.white
+    whiteMaterial.metalness.contents = UIColor.white
     whiteMaterial.locksAmbientWithDiffuse = true
     
     let grayMaterial = SCNMaterial()
     grayMaterial.diffuse.contents = UIColor.gray
+    grayMaterial.metalness.contents = UIColor.gray
     grayMaterial.locksAmbientWithDiffuse = true
     
     let darkGrayMaterial = SCNMaterial()

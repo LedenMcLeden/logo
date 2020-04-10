@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5532FAC5243FE1DD00CC44F2 /* debugCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532FAC4243FE1DD00CC44F2 /* debugCenter.swift */; };
 		556D37602425CA0F00324CE8 /* makeCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D375F2425CA0F00324CE8 /* makeCorner.swift */; };
 		559CF3962425C4ED003C461D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559CF3952425C4ED003C461D /* AppDelegate.swift */; };
 		559CF39A2425C4ED003C461D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559CF3992425C4ED003C461D /* GameViewController.swift */; };
 		559CF39D2425C4ED003C461D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559CF39B2425C4ED003C461D /* Main.storyboard */; };
 		559CF39F2425C4F1003C461D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 559CF39E2425C4F1003C461D /* Assets.xcassets */; };
 		559CF3A22425C4F1003C461D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559CF3A02425C4F1003C461D /* LaunchScreen.storyboard */; };
-		55D89BA724392EA9005D925C /* createCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D89BA624392EA9005D925C /* createCube.swift */; };
+		55D89BA724392EA9005D925C /* createBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D89BA624392EA9005D925C /* createBox.swift */; };
 		55D89BA924392F03005D925C /* createSun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D89BA824392F03005D925C /* createSun.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5532FAC4243FE1DD00CC44F2 /* debugCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debugCenter.swift; sourceTree = "<group>"; };
 		556D375F2425CA0F00324CE8 /* makeCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeCorner.swift; sourceTree = "<group>"; };
 		559CF3922425C4ED003C461D /* logo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		559CF3952425C4ED003C461D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +28,7 @@
 		559CF39E2425C4F1003C461D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		559CF3A12425C4F1003C461D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		559CF3A32425C4F1003C461D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D89BA624392EA9005D925C /* createCube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createCube.swift; sourceTree = "<group>"; };
+		55D89BA624392EA9005D925C /* createBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createBox.swift; sourceTree = "<group>"; };
 		55D89BA824392F03005D925C /* createSun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createSun.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,8 +65,9 @@
 				559CF3952425C4ED003C461D /* AppDelegate.swift */,
 				559CF3992425C4ED003C461D /* GameViewController.swift */,
 				556D375F2425CA0F00324CE8 /* makeCorner.swift */,
-				55D89BA624392EA9005D925C /* createCube.swift */,
+				55D89BA624392EA9005D925C /* createBox.swift */,
 				55D89BA824392F03005D925C /* createSun.swift */,
+				5532FAC4243FE1DD00CC44F2 /* debugCenter.swift */,
 				559CF39B2425C4ED003C461D /* Main.storyboard */,
 				559CF39E2425C4F1003C461D /* Assets.xcassets */,
 				559CF3A02425C4F1003C461D /* LaunchScreen.storyboard */,
@@ -144,9 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5532FAC5243FE1DD00CC44F2 /* debugCenter.swift in Sources */,
 				559CF39A2425C4ED003C461D /* GameViewController.swift in Sources */,
 				559CF3962425C4ED003C461D /* AppDelegate.swift in Sources */,
-				55D89BA724392EA9005D925C /* createCube.swift in Sources */,
+				55D89BA724392EA9005D925C /* createBox.swift in Sources */,
 				556D37602425CA0F00324CE8 /* makeCorner.swift in Sources */,
 				55D89BA924392F03005D925C /* createSun.swift in Sources */,
 			);
