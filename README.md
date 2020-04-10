@@ -9,23 +9,25 @@ This is a demo SceneKit project composed of three elements:
 ## Project Structure
 - GameViewController.swift
   - initialises the View, Scene and Camera
-  - func initScene() calls createCube() and createSun()
+  - func initScene() calls createBox() and createSun()
 - makeCorner.swift
   - makeCorner()
-- createCube.swift
-  - createCube() calls makeCorner() eight times
+- createBox.swift
+  - createBox() calls makeCorner() eight times
 - createSun.swift
   - createSun()
   
-## Functional as of 5th April 2020
+## Functional as of 10th April 2020
 - code compiles and runs
-- sun is positioned inside cube
-- view can be spun by manipulating the camera view
+- sun is correctly positioned inside box
+- box is definitely cubic(!) 
+- camera is correctly positioned and locked
+- box spins based on touch input (random spin, not based on touch vectors)
 
 ## Development to do
 **Major**
-- fix camera in correct position - see my avatar picture for correct perspective
-- allow cube to spin freely around the fixed sun
+- correct point of rotation for box
+- use touch input values instead of random values for applyForce on cube
 
 **Minor**
 - add curvature to sun ray sides - they are drawn using UIBezierPath QuadCurves but currently render with straight lines
