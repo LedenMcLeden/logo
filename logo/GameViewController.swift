@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
     
     func initView() {
         gameView = self.view as! SCNView
-        gameView.allowsCameraControl = false
+        gameView.allowsCameraControl = true
         gameView.autoenablesDefaultLighting = true
         gameView.showsStatistics = false
     }
@@ -39,9 +39,6 @@ class GameViewController: UIViewController {
         
         gameScene.rootNode.addChildNode(createBox())
         gameScene.rootNode.addChildNode(createSun())
-        
-        // debugCenter() was used to confirm that the box and sun are centered around the origin
-        //gameScene.rootNode.addChildNode(debugCenter())
     }
     
     func initCamera() {
@@ -50,13 +47,13 @@ class GameViewController: UIViewController {
         
         cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
+        cameraNode.camera?.fieldOfView = 80
 
-        // position m41:x m42:7 m43:z
         var matrix1: SCNMatrix4
-        matrix1 = SCNMatrix4(m11: 1,          m12: 0,     m13: 0,          m14: 0,
-                             m21: 0,          m22: 1,     m23: 0,          m24: 0,
-                             m31: 0,          m32: 0,     m33: 1,          m34: 0,
-                             m41: 0,          m42: 1.5,   m43: 35,         m44: 1)
+        matrix1 = SCNMatrix4(m11: 1,     m12: 0,     m13: 0,     m14: 0,
+                             m21: 0,     m22: 1,     m23: 0,     m24: 0,
+                             m31: 0,     m32: 0,     m33: 1,     m34: 0,
+                             m41: 7,     m42: -6,    m43: 25,    m44: 1)
 
         cameraNode.transform = SCNMatrix4Mult(matrix1, SCNMatrix4Identity)
         
@@ -64,31 +61,30 @@ class GameViewController: UIViewController {
     }
     
     func handleTouch(node: SCNNode) {
-        let torque: SCNVector4
-        let force: SCNVector3
-        let position: SCNVector3
         let boxNode = gameScene.rootNode.childNode(withName: "box",
         recursively: true)
-        let randomX = Float.random(in: -2 ... 2)
-        let randomY = Float.random(in: -2 ... 2)
-        let randomZ = Float.random(in: -2 ... 2)
+        let randomX = Float.random(in: -10 ... 10)
+        let randomY = Float.random(in: -10 ... 10)
+        let randomZ = Float.random(in: -10 ... 10)
         
-        // applyTorque example
-//        torque = SCNVector4(x: randomX, y: randomY, z: randomZ, w: .pi)
-//        boxNode?.physicsBody?.applyTorque(torque, asImpulse: true)
+        // used to quickly check rotation in one dimenion
+        // let randomX: Float = 1.0
+        // let randomY: Float = 0.0
+        // let randomZ: Float = 0.0
         
-        // applyForce example
-        force = SCNVector3(x: randomX, y: randomY, z: randomZ)
-        position = SCNVector3(x: 5.0, y: 5.0, z: 5.0)
-        boxNode?.physicsBody?.applyForce(force, at: position, asImpulse: true)
+        // applyTorque changes the angular momentum of the node
+        // use this to spin the box
+        let torque: SCNVector4
+        torque = SCNVector4(x: randomX, y: randomY, z: randomZ, w: .pi)
+        boxNode?.physicsBody?.applyTorque(torque, asImpulse: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // identify location and then object being touched - pass to handleTouch
         let touch = touches.first!
         let location = touch.location(in: gameView)
         let hitResults = gameView.hitTest(location, options: nil)
         if let result = hitResults.first {
-            //result.node.name returning nil - not sure why
             handleTouch(node: result.node)
         }
     }

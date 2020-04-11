@@ -32,7 +32,7 @@ func createSun() -> SCNNode {
     sunNode.addChildNode(sunBodyNode)
     
     
-    // draw one sun ray - current straight lines but the intention is to give the rays a degree of curvature
+    // draw one sun ray - currently straight lines but the intention is to give the rays a degree of curvature
     let rayPath = UIBezierPath()
     rayPath.move(to: CGPoint(x: 0, y: 0))
     rayPath.addQuadCurve(to: CGPoint(x:0.605768, y:0), controlPoint: CGPoint(x:0.302884, y:0.2))
@@ -41,7 +41,6 @@ func createSun() -> SCNNode {
     let ray = SCNShape(path: rayPath, extrusionDepth: 0.1)
     //ray.subdivisionLevel = 100    // hilariously turns the ray into a mango seed
     ray.materials = [redMaterial]
-    
     
     // define some matrices for transform purposes
     var rotation: Float = 0.0
@@ -92,10 +91,21 @@ func createSun() -> SCNNode {
         
         sunNode.addChildNode(rayNode)
     }
+        
+    // reuse matrix2 to scale the entire sun down in X & Y
+    matrix2 = SCNMatrix4(m11: 0.95,  m12: 0,     m13: 0,  m14: 0,
+                         m21: 0,     m22: 0.95,  m23: 0,  m24: 0,
+                         m31: 0,     m32: 0,     m33: 1,  m34: 0,
+                         m41: 0,     m42: 0,     m43: 0,  m44: 1)
     
     // orient sun into correct position with respect to the cube
-    sunNode.transform = SCNMatrix4Mult(spin90X, SCNMatrix4Identity)
+    sunNode.transform = SCNMatrix4Mult(spin90X, matrix2)
     sunNode.name = "sun"
-    print("sunNode has been named: \(sunNode.name ?? "unknown")")
+    
+    let pivotXoffset: Float = 7
+    let pivotYoffset: Float = -6
+    let pivotZoffset: Float = -1
+    sunNode.position = SCNVector3Make(pivotXoffset, pivotYoffset, pivotZoffset)
+    
     return sunNode
 }

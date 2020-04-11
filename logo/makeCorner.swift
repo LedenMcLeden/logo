@@ -10,13 +10,9 @@ import UIKit
 import QuartzCore
 import SceneKit
 
-// each side of cube 10 long
-// sun width, height 8
-// centred at 0 the cube extends out each direction
 
-// one complete 3D corner centred at 0, 0, 0
-// breadth: 1, length: 3, depth: 0.1)
 func makeCorner(breadth: CGFloat, length: CGFloat, depth: CGFloat) -> SCNNode {
+    // build one complete 3D corner
     
     /*
                 b: breadth
@@ -48,7 +44,10 @@ func makeCorner(breadth: CGFloat, length: CGFloat, depth: CGFloat) -> SCNNode {
     
     let whiteMaterial = SCNMaterial()
     whiteMaterial.diffuse.contents = UIColor.white
-    whiteMaterial.metalness.contents = UIColor.white
+    whiteMaterial.metalness.contents = 1.0
+    whiteMaterial.roughness.contents = 0.0
+    // physicallyBased lighting requires a light source positioned at the sun otherwise it reflects in a funny way
+    // whiteMaterial.lightingModel = .physicallyBased
     whiteMaterial.locksAmbientWithDiffuse = true
     
     let grayMaterial = SCNMaterial()
