@@ -17,20 +17,20 @@ This is a demo SceneKit project composed of three elements:
 - createSun.swift
   - createSun()
   
-## Functional as of 10th April 2020
+## Functional as of 11th April 2020
+- effectively version 1.0
 - code compiles and runs
 - sun is correctly positioned inside box
-- box is definitely cubic(!) 
-- camera is correctly positioned and locked
-- box spins based on touch input (random spin, not based on touch vectors)
+- box is truly cubic
+- camera is correctly positioned and allowed to be manipulated
+- box spins around the sun based on touch input (random spin, not based on touch vectors)
 
 ## Development to do
 **Major**
-- correct point of rotation for box
-- use touch input values instead of random values for applyForce on cube
+- 
 
 **Minor**
 - add curvature to sun ray sides - they are drawn using UIBezierPath QuadCurves but currently render with straight lines
 - rotate each ray fractionally to line up parallel with sun surface
-- change materials of cube to be metallic and reflective
+- change materials of cube to be metallic and reflective - really needs new lighting sources to make this work
 - embed in SwiftUI view
