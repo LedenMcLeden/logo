@@ -33,11 +33,16 @@ func createSun() -> SCNNode {
     
     
     // draw one sun ray - currently straight lines but the intention is to give the rays a degree of curvature
+    //      c
+    //      /\
+    //     /  \
+    //  a /____\ b
+    //
     let rayPath = UIBezierPath()
-    rayPath.move(to: CGPoint(x: 0, y: 0))
-    rayPath.addQuadCurve(to: CGPoint(x:0.605768, y:0), controlPoint: CGPoint(x:0.302884, y:0.2))
-    rayPath.addQuadCurve(to: CGPoint(x:0.302884, y:1), controlPoint: CGPoint(x:0.605768, y:0.4))
-    rayPath.addQuadCurve(to: CGPoint(x:0, y:0), controlPoint: CGPoint(x:0, y:0.4))
+    rayPath.move(to: CGPoint(x: -0.42, y: 0)) // a
+    rayPath.addQuadCurve(to: CGPoint(x:0.42, y:0), controlPoint: CGPoint(x:0, y:0.2)) // b
+    rayPath.addQuadCurve(to: CGPoint(x:0, y:1.4), controlPoint: CGPoint(x:0.5, y:0.5)) // c
+    rayPath.addQuadCurve(to: CGPoint(x:-0.42, y:0), controlPoint: CGPoint(x:-0.5, y:0.5)) // a
     let ray = SCNShape(path: rayPath, extrusionDepth: 0.1)
     //ray.subdivisionLevel = 100    // hilariously turns the ray into a mango seed
     ray.materials = [redMaterial]
@@ -59,7 +64,7 @@ func createSun() -> SCNNode {
     matrix2 = SCNMatrix4(m11: 1.5,        m12: 0,     m13: 0,          m14: 0,
                          m21: 0,          m22: 1.5,   m23: 0,          m24: 0,
                          m31: 0,          m32: 0,     m33: 1,          m34: 0,
-                         m41: 0,          m42: 4.6,   m43: 0,          m44: 1)
+                         m41: 0,          m42: 4.8,   m43: 0,          m44: 1)
     
     fixRotationValue = 0.1745329252 // 0.1745329252 is 10° in radians
     fixRotationInY = SCNMatrix4(m11: cos(fixRotationValue),   m12: 0, m13: -sin(fixRotationValue),   m14: 0,
@@ -69,7 +74,7 @@ func createSun() -> SCNNode {
     
     for i in 1..<13 {   // 12 rays
         let rayNode = SCNNode(geometry: ray)
-        let rotationCorrection: Float = 0.17 // correct for symmetry
+        let rotationCorrection: Float = (.pi*2)/24 // correct for symmetry
         // rotation around the edge of the sun
         rotation = ((.pi*2))/12*Float(i)+rotationCorrection
         // matrix1 is to rotate in Y
